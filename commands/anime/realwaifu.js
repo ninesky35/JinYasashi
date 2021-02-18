@@ -15,7 +15,7 @@ module.exports = {
 					name: msg.author.username,
 					icon_url: msg.author.avatarURL
 				},
-				title: 'Waaa~ ii~~ fuuuu~',
+				description: '**Waaa~ ii~~ fuuuu~**',
 				image: {
 					url: img.url
 				},

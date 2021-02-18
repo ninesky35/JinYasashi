@@ -13,16 +13,18 @@ const Eris = require('eris-additions')(require('eris'));
 Eris.Channel.prototype.error = function(error) {
 	this.createMessage('Gomen-ne! there was an error!\n' + error);
 };
+
 const bot = new Eris(process.env.DISCORD_TOKEN, {
 	intents: 4617,
 	allowedMentions: { everyone: false, roles: false },
 	restMode: true
 });
 const { readdirSync, statSync } = require('fs');
-const Database = require('@replit/database');
-const db = new Database();
+require('./database/index.js');
+const prefixes = require('./database/models/prefixes.js');
 bot.commands = new Eris.Collection();
 bot.cooldowns = new Eris.Collection();
+bot.cache = new Map();
 bot.color = 0xac6a65;
 const readDir = require('./utils/readDir.js');
 
@@ -52,8 +54,14 @@ bot.once('ready', () => {
 });
 
 bot.on('messageCreate', async msg => {
-	let data = await db.get(`prefix_${msg.guild.id}`);
-	let prefix = data ? data : '&';
+	let prefix;
+	if (bot.cache.has(msg.guild.id)) {
+		prefix = bot.cache.get(msg.guild.id);
+	} else {
+		let data = await prefixes.get(msg.guild.id);
+		bot.cache.set(msg.guild.id, data.prefix || '&');
+		prefix = bot.cache.get(msg.guild.id);
+	}
 	if (msg.author.bot) return;
 	if (!msg.guild) return;
 
@@ -117,11 +125,41 @@ bot.on('messageUpdate', (msg, old) => {
 });
 
 bot.on('guildDelete', async guild => {
-	Promise.all([db.get(`prefix_${guild.id}`)]).then(async data => {
-		if (data[0]) {
-			db.delete(`prefix_${guild.id}`);
-			console.log('Prefix deleted in the guild ' + guild.id);
+	let data = await Prefixes.get(guild.id);
+	if (data) {
+		Prefixes.rm(guild.id);
+	}
+});
+
+bot.on('guildCreate', async guild => {
+	let owner = await bot.getRESTUser(guild.ownerID).catch(() => {});
+	bot.createMessage('811138957341229085', {
+		embed: {
+			color: bot.color,
+			author: {
+				name: guild.name,
+				icon_url: guild.iconURL
+			},
+			thumbnail: {
+				url: guild.iconURL
+			},
+			title: guild.name,
+			fields: [
+				{
+					name: 'Member Count',
+					value: guild.memberCount
+				},
+				{
+					name: 'ID',
+					value: guild.id
+				},
+				{
+					name: 'Owner',
+					value: owner.tag + '(' + guild.ownerID + ')'
+				}
+			]
 		}
 	});
 });
+
 bot.connect();

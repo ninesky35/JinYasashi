@@ -66,6 +66,10 @@ module.exports = {
 							{
 								name: 'Category',
 								value: cmd.cat
+							},
+							{
+								name: 'Cooldown',
+								value: cmd.cooldown + ' Seconds'
 							}
 						]
 					}

@@ -2,7 +2,7 @@ module.exports = {
 	name: 'eval',
 	aliases: ['e'],
 	cat: 'devs',
-	cooldown: 0,
+	cooldown: 2,
 	run: async (bot, msg, args) => {
 		let code = args.join(' ');
 		if (!code) return;
@@ -15,7 +15,9 @@ module.exports = {
 				'```kt\n(' + tipo + ') ' + resultado.slice(0, 1024) + '```'
 			);
 		} catch (err) {
-			msg.channel.createMessage('```kt\n' + err.stack.toString().slice(0, 1024) + '```');
+			msg.channel.createMessage(
+				'```kt\n' + err.stack.toString().slice(0, 1024) + '```'
+			);
 		}
 	}
 };

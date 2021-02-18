@@ -4,7 +4,7 @@ module.exports = {
 	desc:
 		'Get a random Waifu created by an AI from https://www.thiswaifudoesnotexist.net/',
 	cat: 'anime',
-	cooldown: 15,
+	cooldown: 7,
 	run: async (bot, msg, args) => {
 		let id = Math.floor(Math.random() * 10000);
 		try {
@@ -16,7 +16,7 @@ module.exports = {
 						name: msg.author.username,
 						icon_url: msg.author.avatarURL
 					},
-					title: 'This Waifu DOES NOT EXIST!',
+					description: 'This Waifu **DOES NOT EXIST!**',
 					image: {
 						url: img
 					},

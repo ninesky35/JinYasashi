@@ -1,5 +1,4 @@
-const Database = require('@replit/database');
-const db = new Database();
+const prefixes = require('../../database/models/prefixes.js')
 module.exports = {
 	name: 'setprefix',
 	aliases: ['prefix'],
@@ -17,7 +16,10 @@ module.exports = {
 		if (args[0].length >= 6)
 			return msg.channel.createMessage("Gomen-ne! but the length of the new prefix cannot be larger than 6 chars");
 
-		await db.set(`prefix_${msg.channel.guild.id}`, args[0]);
+		await prefixes.set(msg.guild.id, args[0]);
+		if(bot.cache.has(msg.guild.id)) {
+		  bot.cache.set(msg.guild.id, args[0])
+		}
 		msg.channel.createMessage("The prefix was changed correctly! the new prefix is "+args[0]);
     } catch(e) {
       console.log(e.stack)

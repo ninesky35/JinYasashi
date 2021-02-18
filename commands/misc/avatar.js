@@ -3,7 +3,7 @@ module.exports = {
 	aliases: ['av', 'pfp', 'pic'],
 	desc: 'See the avatar of the mentioned by ID or mention or yours',
 	cat: 'misc',
-	cooldown: 20,
+	cooldown: 6,
 	run: async (bot, msg, args) => {
 		try {
 			let user =
