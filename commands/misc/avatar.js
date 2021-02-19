@@ -17,7 +17,7 @@ module.exports = {
 						name: user.username,
 						icon_url: user.avatarURL
 					},
-					title: user.username + "'s Avatar",
+					description: '**' + user.username + "'s Avatar**",
 					image: {
 						url: user.avatarURL.replace('size=128', 'size=2048')
 					},

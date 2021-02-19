@@ -14,41 +14,44 @@ module.exports = {
 						name: bot.user.username,
 						icon_url: bot.user.avatarURL
 					},
-					thumbnail: { url: bot.user.avatarURL },
 					title:
 						"Hello! Watashi wa Jin! I'm your new friend who will help you in everything related to weeb stuff! and other things...!",
 					fields: [
 						{
 							name: 'Prefix in this server',
 							value:
+								'`' +
 								prefix +
-								'\n you can change it with ' +
+								'`\nyou can change it with `' +
 								prefix +
-								'setprefix [New Prefix]'
+								'setprefix [New Prefix]`'
 						},
 						{
 							name: 'To see my commands',
-							value: prefix + 'commands'
+							value: '`' + prefix + 'commands`'
 						},
 						{
 							name: 'Servers',
-							value: bot.guilds.size
+							value: '`' + bot.guilds.size + '`'
 						},
 						{
 							name: 'Uptime',
-							value: human(bot.uptime)
+							value: '`' + human(bot.uptime) + '`'
 						},
 						{
-							name: 'Invite me',
+							name: 'Invites',
 							value:
-								'[I know you want to invite me!](https://discord.com/oauth2/authorize?client_id=809938925937491989&scope=bot&permissions=67488832)'
+								'[Bot Invite](https://discord.com/oauth2/authorize?client_id=809938925937491989&scope=bot&permissions=67488848)\n[Support Server](https://discord.gg/rJKNK67hQT)'
 						},
 						{
-							name: 'Credits',
-							value:
-								'Creator: **Over#7073**\nDeveloper: **KO_ver2#8529**\nIcon: [BulzyKrown](https://instagram.com/bulzykrown)'
+							name: 'Developers',
+							value: '**KO_ver2#8529, Over#7073**'
 						}
 					],
+					image: {
+						url:
+							'https://cdn.discordapp.com/attachments/788364105437675530/812187399655915550/85_sin_titulo_20210218230238.png'
+					},
 					footer: {
 						text: 'Req by ' + msg.author.username,
 						icon_url: msg.author.avatarURL

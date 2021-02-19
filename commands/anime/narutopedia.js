@@ -33,7 +33,7 @@ module.exports = {
 					icon_url: msg.author.avatarURL
 				},
 				title: doc.json().title,
-				description: sentences.join(' ').slice(0, 2048),
+				description: '`' + sentences.join(' ').slice(0, 2048) + '`',
 				image: {
 					url: img[0].image
 				},

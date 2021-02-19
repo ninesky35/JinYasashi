@@ -28,9 +28,9 @@ module.exports = {
 					description:
 						'**Name**\n' +
 						data.titles.en_jp +
-						'\n\n**Synopsis** (Marked as a spoiler in case you want to know nothing hehe)\n||' +
+						'\n\n**Synopsis** (Marked as a spoiler in case you want to know nothing hehe)\n||`' +
 						data.synopsis.slice(0, 1800) +
-						'||',
+						'`||',
 					image: {
 						url: data.posterImage.medium
 					},

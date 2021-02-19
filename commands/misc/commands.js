@@ -21,15 +21,14 @@ module.exports = {
 						author: { name: bot.user.username, icon_url: bot.user.avatarURL },
 						title:
 							"Here's the list of my commands! I have [" + cmds + '] Commands',
-						thumbnail: { url: bot.user.avatarURL },
 						fields: [
 							{
 								name: 'Anime [' + cmdn(bot, 'anime') + ']',
-								value: cmdlist(bot, 'anime')
+								value: '`' + cmdlist(bot, 'anime') + '`'
 							},
 							{
 								name: 'Misc [' + cmdn(bot, 'misc') + ']',
-								value: cmdlist(bot, 'misc')
+								value: '`' + cmdlist(bot, 'misc') + '`'
 							}
 						],
 						footer: {
@@ -40,7 +39,11 @@ module.exports = {
 								msg.author.tag,
 							icon_url: msg.author.avatarURL
 						},
-						timestamp: new Date()
+						timestamp: new Date(),
+						image: {
+							url:
+								'https://cdn.discordapp.com/attachments/812177654710009897/812193221244616734/PicsArt_02-18-11.25.04.jpg'
+						}
 					}
 				});
 			} else {
@@ -53,23 +56,23 @@ module.exports = {
 						fields: [
 							{
 								name: 'Command name',
-								value: cmd.name
+								value: '`' + cmd.name + '`'
 							},
 							{
 								name: 'Aliases',
-								value: aliases
+								value: '`' + aliases + '`'
 							},
 							{
 								name: 'Description',
-								value: cmd.desc
+								value: '`' + cmd.desc + '`'
 							},
 							{
 								name: 'Category',
-								value: cmd.cat
+								value: '`' + cmd.cat + '`'
 							},
 							{
 								name: 'Cooldown',
-								value: cmd.cooldown + ' Seconds'
+								value: '`' + cmd.cooldown + ' Seconds`'
 							}
 						]
 					}

@@ -27,23 +27,23 @@ module.exports = {
 					fields: [
 						{
 							name: '1# Fact',
-							value: facts[0]
+							value: '`' + facts[0] + '`'
 						},
 						{
 							name: '2# Fact',
-							value: facts[1]
+							value: '`' + facts[1] + '`'
 						},
 						{
 							name: '3# Fact',
-							value: facts[2]
+							value: '`' + facts[2] + '`'
 						},
 						{
 							name: '4# Fact',
-							value: facts[3]
+							value: '`' + facts[3] + '`'
 						},
 						{
 							name: '5# Fact',
-							value: facts[4]
+							value: '`' + facts[4] + '`'
 						}
 					],
 					image: {

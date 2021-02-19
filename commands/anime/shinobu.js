@@ -15,7 +15,7 @@ module.exports = {
 					name: msg.author.username,
 					icon_url: msg.author.avatarURL
 				},
-				title: 'What a cute Vampire! dont ya think?',
+				description: '**What a cute Vampire! dont ya think?**',
 				image: {
 					url: img.url
 				},

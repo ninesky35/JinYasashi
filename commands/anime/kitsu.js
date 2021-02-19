@@ -14,7 +14,7 @@ module.exports = {
 						name: msg.author.username,
 						icon_url: msg.author.avatarURL
 					},
-					title: 'Kitsune! ( ꈍᴗꈍ)',
+					description: '**Kitsune! ( ꈍᴗꈍ)**',
 					image: {
 						url: await akaneko.foxgirl()
 					},

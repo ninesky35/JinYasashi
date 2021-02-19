@@ -26,37 +26,37 @@ module.exports = {
 							value: bot.user.tag
 						},
 						{
-							name: 'Creator | Developer | Icon',
+							name: 'Developers',
 							value:
-								'Over#7073 **|** KO_ver2#8529 **|** [BulzyKrown](https://www.instagram.com/bulzykrown)'
+								'**Over#7073, KO_ver2#8529**'
 						},
 						{
 							name: 'Uptime',
-							value: hd(bot.uptime)
+							value: '`' + hd(bot.uptime) + '`'
 						},
 						{
 							name: 'Lib',
-							value: 'Eris [0.14.0]'
+							value: '`Eris [0.14.0]`'
 						},
 						{
 							name: 'Ping',
-							value: bot.shards.get(msg.guild.shard.id).latency + 'ms'
+							value: '`' + bot.shards.get(msg.guild.shard.id).latency + 'ms`'
 						},
 						{
 							name: 'CPU',
-							value: require('os').cpus()[0].model
+							value: '`' + require('os').cpus()[0].model + '`'
 						},
 						{
 							name: 'CPU Usage',
-							value: percent.toFixed(2) + '%'
+							value: '`' + percent.toFixed(2) + '%`'
 						},
 						{
 							name: 'Servers',
-							value: bot.guilds.size
+							value: '`' + bot.guilds.size + '`'
 						},
 						{
 							name: 'Cached Users',
-							value: bot.users.size
+							value: '`' + bot.users.size + '`'
 						}
 					]
 				}

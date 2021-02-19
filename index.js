@@ -15,7 +15,7 @@ Eris.Channel.prototype.error = function(error) {
 };
 
 const bot = new Eris(process.env.DISCORD_TOKEN, {
-	intents: 4617,
+	intents: 4619,
 	allowedMentions: { everyone: false, roles: false },
 	restMode: true
 });
@@ -24,8 +24,9 @@ require('./database/index.js');
 const prefixes = require('./database/models/prefixes.js');
 bot.commands = new Eris.Collection();
 bot.cooldowns = new Eris.Collection();
+bot.db = prefixes;
 bot.cache = new Map();
-bot.color = 0xac6a65;
+bot.color = 0x6f4e37;
 const readDir = require('./utils/readDir.js');
 
 let commandFiles = readdirSync('./commands').filter(f => f.endsWith('.js'));
@@ -59,7 +60,7 @@ bot.on('messageCreate', async msg => {
 		prefix = bot.cache.get(msg.guild.id);
 	} else {
 		let data = await prefixes.get(msg.guild.id);
-		bot.cache.set(msg.guild.id, data.prefix || '&');
+		bot.cache.set(msg.guild.id, data.prefix || ';');
 		prefix = bot.cache.get(msg.guild.id);
 	}
 	if (msg.author.bot) return;
@@ -133,7 +134,7 @@ bot.on('guildDelete', async guild => {
 
 bot.on('guildCreate', async guild => {
 	let owner = await bot.getRESTUser(guild.ownerID).catch(() => {});
-	bot.createMessage('811138957341229085', {
+	bot.createMessage('812336305270816819', {
 		embed: {
 			color: bot.color,
 			author: {
@@ -155,7 +156,7 @@ bot.on('guildCreate', async guild => {
 				},
 				{
 					name: 'Owner',
-					value: owner.tag + '(' + guild.ownerID + ')'
+					value: owner.tag + ' (' + guild.ownerID + ')'
 				}
 			]
 		}

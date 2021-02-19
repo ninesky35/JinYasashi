@@ -12,9 +12,11 @@ module.exports = {
 				return msg.channel.createMessage(
 					"Gomen-ne! but you didn't write the sentence to uwuify"
 				);
-			msg.channel.createMessage(uwu.uwuifySentence(args.join(' ')));
+			msg.channel.createMessage('`' + uwu.uwuifySentence(args.join(' ')) + '`');
 		} catch (e) {
-			msg.channel.error("Idk why an error could occur here but yeah, unexpected error");
+			msg.channel.error(
+				'Idk why an error could occur here but yeah, unexpected error'
+			);
 		}
 	}
 };

@@ -21,7 +21,7 @@ module.exports = {
 						name: msg.author.username,
 						icon_url: msg.author.avatarURL
 					},
-					description: json.data.data[0].quote,
+					description: '`' + json.data.data[0].quote + '`',
 					image: {
 						url: img[0].image
 					},
@@ -32,7 +32,9 @@ module.exports = {
 			});
 		} catch (e) {
 			console.error(e);
-			msg.channel.error("I think there was a problem with axios, duckduckgo or the api of the quotes so yeah, Sorry, try again");
+			msg.channel.error(
+				'I think there was a problem with axios, duckduckgo or the api of the quotes so yeah, Sorry, try again'
+			);
 		}
 	}
 };

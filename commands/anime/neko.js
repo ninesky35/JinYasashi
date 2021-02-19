@@ -14,7 +14,7 @@ module.exports = {
 						name: msg.author.username,
 						icon_url: msg.author.avatarURL
 					},
-					title: "Here's your Neko!",
+					description: "**Here's your Neko!**",
 					image: {
 						url: await akaneko.neko()
 					},

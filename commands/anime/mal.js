@@ -18,7 +18,9 @@ module.exports = {
 				embed: {
 					color: bot.color,
 					title: data.title,
-					description: data.synopsis ? data.synopsis.slice(0, 2048) : '\u200b',
+					description: data.synopsis
+						? '`' + data.synopsis.slice(0, 2048) + '`'
+						: '\u200b',
 					image: {
 						url: data.picture ? data.picture : '\u200b'
 					},
