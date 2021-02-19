@@ -39,9 +39,9 @@ module.exports = {
 							value: '`' + human(bot.uptime) + '`'
 						},
 						{
-							name: 'Invites',
+							name: 'Links',
 							value:
-								'[Bot Invite](https://discord.com/oauth2/authorize?client_id=809938925937491989&scope=bot&permissions=67488848)\n[Support Server](https://discord.gg/rJKNK67hQT)'
+								'[Bot Invite](https://discord.com/oauth2/authorize?client_id=809938925937491989&scope=bot&permissions=67488848)\n[Support Server](https://discord.gg/rJKNK67hQT)\n[Github Repo](https://github.com/diegohgaona/JinYasashi)'
 						},
 						{
 							name: 'Developers',

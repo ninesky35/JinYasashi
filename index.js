@@ -55,6 +55,7 @@ bot.once('ready', () => {
 });
 
 bot.on('messageCreate', async msg => {
+  if(!msg.guild) return;
 	let prefix;
 	if (bot.cache.has(msg.guild.id)) {
 		prefix = bot.cache.get(msg.guild.id);
@@ -64,7 +65,6 @@ bot.on('messageCreate', async msg => {
 		prefix = bot.cache.get(msg.guild.id);
 	}
 	if (msg.author.bot) return;
-	if (!msg.guild) return;
 
 	const args = msg.content
 		.substring(prefix.length)
