@@ -25,6 +25,10 @@ And there are many more commands, as you can see below!
 ~ uwuify
 ~ aiwaifu
 ~ watchlist
+~ mwallpaper
+~ wallpaper
+~wikidex
+
 ### Misc
 ~ avatar
 ~ botinfo
