@@ -1,13 +1,13 @@
 {
-  "name": "Suna",
-  "version": "1.0.0",
-  "description": "",
+  "name": "JinYasashi",
+  "version": "2.3.5",
+  "description": "Discord Bot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "diegohgaona",
   "license": "Apache-2.0 License",
   "dependencies": {
     "@replit/database": "^2.0.0",
