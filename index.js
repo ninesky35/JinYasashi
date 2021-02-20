@@ -124,9 +124,41 @@ bot.on('messageUpdate', (msg, old) => {
 });
 
 bot.on('guildDelete', async guild => {
-	let data = await Prefixes.get(guild.id);
+  try {
+	let data = await bot.db.get(guild.id);
 	if (data) {
-		Prefixes.rm(guild.id);
+		bot.db.rm(guild.id);
+	}
+		let owner = await bot.getRESTUser(guild.ownerID).catch(() => {});
+	bot.createMessage('812566018136211468', {
+		embed: {
+			color: bot.color,
+			author: {
+				name: guild.name,
+				icon_url: guild.iconURL
+			},
+			thumbnail: {
+				url: guild.iconURL
+			},
+			title: guild.name,
+			fields: [
+				{
+					name: 'Member Count',
+					value: guild.memberCount
+				},
+				{
+					name: 'ID',
+					value: guild.id
+				},
+				{
+					name: 'Owner',
+					value: owner.tag + ' (' + guild.ownerID + ')'
+				}
+			]
+		}
+	});
+	} catch(e) {
+	  console.log("guildDelete jei")
 	}
 });
 
