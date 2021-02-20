@@ -10,9 +10,6 @@ app.listen(port, () => {
 });
 
 const Eris = require('eris-additions')(require('eris'));
-Eris.Channel.prototype.error = function(error) {
-	this.createMessage('Gomen-ne! there was an error!\n' + error);
-};
 
 const bot = new Eris(process.env.DISCORD_TOKEN, {
 	intents: 4619,
@@ -22,6 +19,7 @@ const bot = new Eris(process.env.DISCORD_TOKEN, {
 const { readdirSync, statSync } = require('fs');
 require('./database/index.js');
 const prefixes = require('./database/models/prefixes.js');
+require('./utils/errorMessage');
 bot.commands = new Eris.Collection();
 bot.cooldowns = new Eris.Collection();
 bot.db = prefixes;
@@ -55,7 +53,7 @@ bot.once('ready', () => {
 });
 
 bot.on('messageCreate', async msg => {
-  if(!msg.guild) return;
+	if (!msg.guild) return;
 	let prefix;
 	if (bot.cache.has(msg.guild.id)) {
 		prefix = bot.cache.get(msg.guild.id);
