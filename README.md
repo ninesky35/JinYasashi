@@ -34,8 +34,12 @@ And there are many more commands, as you can see below!
 ~ morse
 ~ nsfw
 ~ ping
+~ reportbug
 ~ reverse
 ~ setprefix
+~ vote
+~ botsuggest
+
 - And more categories and commands will be added later! 
 ------
 I am working hard to bring some entertainment to your Discord server and I am very grateful that you are reading this, ehm well, Thank U! (◍•ᴗ•◍)❤
