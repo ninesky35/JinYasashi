@@ -36,6 +36,7 @@
     "mongoose": "^5.11.16",
     "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1",
+    "reddit-fetch": "^1.5.1",
     "uwuifier": "^2.0.4",
     "waifu-generator": "^1.1.1",
     "waifu.pics": "0.0.2",

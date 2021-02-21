@@ -108,6 +108,7 @@ bot.on('messageCreate', async msg => {
 
 	try {
 		if (!msg.channel.permissionsOf(msg.guild.me.id).has('embedLinks')) {
+
 			return msg.channel.error(
 				"Ehm, Sorry but I don't have the embed links permission, and i need it hehe~"
 			);
