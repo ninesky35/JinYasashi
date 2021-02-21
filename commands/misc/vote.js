@@ -8,7 +8,7 @@ module.exports = {
 		msg.channel.createMessage({
 			embed: {
 				color: bot.color,
-				description: `Vote for Jin!\n> <:yes:806948674201976874> Vote on [MadKing](https://madking.us/bot/809938925937491989/vote)`,
+				description: `Vote for Jin!\n> <:yes:806948674201976874> Vote on [MadKing](https://madking.us/bot/809938925937491989/vote)\n> <:botsfordiscord2:381674698993303553> Vote on [BFD](https://botsfordiscord.com/bot/809938925937491989/vote)`,
 				footer: {
 					text: "If I'm lucky you will soon be able to vote in Top gg (◍•ᴗ•◍)❤"
 				},

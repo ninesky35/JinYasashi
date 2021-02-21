@@ -11,6 +11,7 @@
   "license": "Apache-2.0 License",
   "dependencies": {
     "@replit/database": "^2.0.0",
+    "Wumpus-stickers": "git+https://github.com/Hamburgors/Wumpus-stickers.git",
     "akaneko": "^5.0.1",
     "anime-facts": "^1.0.9",
     "anime-quotes-api": "^1.2.0",
