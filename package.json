@@ -8,7 +8,11 @@
   },
   "keywords": [],
   "author": "diegohgaona",
-  "license": "Apache-2.0 License",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diegohgaona/JinYasashi"
+  },
   "dependencies": {
     "@replit/database": "^2.0.0",
     "Wumpus-stickers": "git+https://github.com/Hamburgors/Wumpus-stickers.git",
@@ -36,5 +40,8 @@
     "waifu-generator": "^1.1.1",
     "waifu.pics": "0.0.2",
     "wtf_wikipedia": "^8.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0"
   }
 }
