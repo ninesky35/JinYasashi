@@ -12,6 +12,8 @@ module.exports = {
 	run: async (bot, msg, args) => {
 		try {
 			percent = await usagePercent();
+			const mem = process.memoryUsage();
+			const memoryU = `${memory(mem.rss)}`;
 			msg.channel.createMessage({
 				embed: {
 					color: bot.color,
@@ -27,8 +29,7 @@ module.exports = {
 						},
 						{
 							name: 'Developers',
-							value:
-								'**Over#7073, KO_ver2#8529**'
+							value: '**Over#7073, KO_ver2#8529**'
 						},
 						{
 							name: 'Uptime',
@@ -45,6 +46,10 @@ module.exports = {
 						{
 							name: 'CPU',
 							value: '`' + require('os').cpus()[0].model + '`'
+						},
+						{
+							name: 'RAM Usage',
+							value: memoryU
 						},
 						{
 							name: 'CPU Usage',
@@ -66,3 +71,22 @@ module.exports = {
 		}
 	}
 };
+
+function memory(bytes = 0, r = true) {
+	const gigaBytes = bytes / 1024 ** 3;
+	if (gigaBytes > 1) {
+		return `${gigaBytes.toFixed(1)} ${r ? 'GB' : ''}`;
+	}
+
+	const megaBytes = bytes / 1024 ** 2;
+	if (megaBytes > 1) {
+		return `${megaBytes.toFixed(2)} ${r ? 'MB' : ''}`;
+	}
+
+	const kiloBytes = bytes / 1024;
+	if (kiloBytes > 1) {
+		return `${kiloBytes.toFixed(2)} ${r ? 'KB' : ''}`;
+	}
+
+	return `${bytes.toFixed(2)} ${r ? 'B' : ''}`;
+}
