@@ -25,11 +25,11 @@ module.exports = {
 					fields: [
 						{
 							name: 'Name',
-							value: bot.user.tag
+							value: '`' + bot.user.tag + '`'
 						},
 						{
 							name: 'Developers',
-							value: '**Over#7073, KO_ver2#8529**'
+							value: '`Over#7073, KO_ver2#8529`'
 						},
 						{
 							name: 'Uptime',
@@ -49,7 +49,7 @@ module.exports = {
 						},
 						{
 							name: 'RAM Usage',
-							value: memoryU
+							value: '`' + memoryU + '`'
 						},
 						{
 							name: 'CPU Usage',
