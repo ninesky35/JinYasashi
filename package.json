@@ -23,6 +23,7 @@
     "anime-themes": "^4.0.1",
     "axios": "^0.21.1",
     "booru": "^2.4.0",
+    "canvas": "^2.6.1",
     "cpu-stat": "^2.0.1",
     "duckduckgo-images-api": "^1.0.5",
     "eris": "^0.14.0",

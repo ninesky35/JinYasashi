@@ -19,7 +19,12 @@ const bot = new Eris(process.env.DISCORD_TOKEN, {
 const { readdirSync, statSync } = require('fs');
 require('./database/index.js');
 const prefixes = require('./database/models/prefixes.js');
+require('./utils/setNSFW');
 require('./utils/errorMessage');
+const canvas = require('canvas');
+canvas.registerFont('./CaviarDreams.ttf', { family: 'Caviar' });
+canvas.registerFont('./CaviarDreams_Bold.ttf', { family: 'CDB' });
+canvas.registerFont('./LEMONMILK-Regular.otf', { family: 'Lemon' });
 bot.commands = new Eris.Collection();
 bot.cooldowns = new Eris.Collection();
 bot.db = prefixes;
@@ -108,7 +113,6 @@ bot.on('messageCreate', async msg => {
 
 	try {
 		if (!msg.channel.permissionsOf(msg.guild.me.id).has('embedLinks')) {
-
 			return msg.channel.error(
 				"Ehm, Sorry but I don't have the embed links permission, and i need it hehe~"
 			);
@@ -125,41 +129,41 @@ bot.on('messageUpdate', (msg, old) => {
 });
 
 bot.on('guildDelete', async guild => {
-  try {
-	let data = await bot.db.get(guild.id);
-	if (data) {
-		bot.db.rm(guild.id);
-	}
-		let owner = await bot.getRESTUser(guild.ownerID).catch(() => {});
-	bot.createMessage('812566018136211468', {
-		embed: {
-			color: bot.color,
-			author: {
-				name: guild.name,
-				icon_url: guild.iconURL
-			},
-			thumbnail: {
-				url: guild.iconURL
-			},
-			title: guild.name,
-			fields: [
-				{
-					name: 'Member Count',
-					value: guild.memberCount
-				},
-				{
-					name: 'ID',
-					value: guild.id
-				},
-				{
-					name: 'Owner',
-					value: owner.tag + ' (' + guild.ownerID + ')'
-				}
-			]
+	try {
+		let data = await bot.db.get(guild.id);
+		if (data) {
+			bot.db.rm(guild.id);
 		}
-	});
-	} catch(e) {
-	  console.log("guildDelete jei")
+		let owner = await bot.getRESTUser(guild.ownerID).catch(() => {});
+		bot.createMessage('812566018136211468', {
+			embed: {
+				color: bot.color,
+				author: {
+					name: guild.name,
+					icon_url: guild.iconURL
+				},
+				thumbnail: {
+					url: guild.iconURL
+				},
+				title: guild.name,
+				fields: [
+					{
+						name: 'Member Count',
+						value: guild.memberCount
+					},
+					{
+						name: 'ID',
+						value: guild.id
+					},
+					{
+						name: 'Owner',
+						value: owner.tag + ' (' + guild.ownerID + ')'
+					}
+				]
+			}
+		});
+	} catch (e) {
+		console.log('guildDelete jei');
 	}
 });
 

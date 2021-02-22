@@ -4,6 +4,7 @@ module.exports = {
   aliases: [],
   desc: 'Normal Memes!',
   cat: 'misc',
+  cooldown: 8,
   run: (bot, msg, args) => {
     red({
       subreddit: 'memes',

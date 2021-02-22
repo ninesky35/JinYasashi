@@ -27,9 +27,16 @@ And there are many more commands, as you can see below!
 ~ watchlist
 ~ mwallpaper
 ~ wallpaper
-~wikidex
+~ wikidex
+~ animeme
+
+### Images
+~ xmas
+~ topsimp
+~ trainercard
 
 ### Misc
+~ meme
 ~ avatar
 ~ botinfo
 ~ commands
