@@ -27,6 +27,10 @@ module.exports = {
 								value: '`' + cmdlist(bot, 'anime') + '`'
 							},
 							{
+								name: `Images [${cmdn(bot, 'images')}]`,
+								value: `\`${cmdlist(bot, 'images')}\``
+							},
+							{
 								name: 'Misc [' + cmdn(bot, 'misc') + ']',
 								value: '`' + cmdlist(bot, 'misc') + '`'
 							}
