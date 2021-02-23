@@ -14,6 +14,7 @@ module.exports = {
 			percent = await usagePercent();
 			const mem = process.memoryUsage();
 			const memoryU = `${memory(mem.rss)}`;
+			let users = eval(bot.guilds.map(x => x.memberCount).join(' + '));
 			msg.channel.createMessage({
 				embed: {
 					color: bot.color,
@@ -60,8 +61,8 @@ module.exports = {
 							value: '`' + bot.guilds.size + '`'
 						},
 						{
-							name: 'Cached Users',
-							value: '`' + bot.users.size + '`'
+							name: 'Users',
+							value: '`' + users.toLocaleString() + '`'
 						}
 					]
 				}

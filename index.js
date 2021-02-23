@@ -12,13 +12,14 @@ app.listen(port, () => {
 const Eris = require('eris-additions')(require('eris'));
 
 const bot = new Eris(process.env.DISCORD_TOKEN, {
-	intents: 4619,
+	intents: 4617,
 	allowedMentions: { everyone: false, roles: false },
 	restMode: true
 });
 const { readdirSync, statSync } = require('fs');
 require('./database/index.js');
 const prefixes = require('./database/models/prefixes.js');
+require('./utils/reply');
 require('./utils/setNSFW');
 require('./utils/errorMessage');
 const canvas = require('canvas');
@@ -54,6 +55,11 @@ for (const file of commandFiles) {
 }
 
 bot.once('ready', () => {
+	bot.editStatus('idle', {
+		name: ';help',
+		type: 0,
+		url: 'https://github.com/diegohgaona/JinYasashi'
+	});
 	console.log('Bot started');
 });
 

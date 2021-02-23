@@ -10,7 +10,7 @@ module.exports = {
 	run: async (bot, msg, args) => {
 		let user =
 			msg.mentions[0] ||
-			(await bot.fetchUser(args[0]).catch(() => {})) ||
+			(await bot.getRESTUser(args[0]).catch(() => {})) ||
 			msg.author;
 		const canvas = createCanvas(900, 797);
 		const ctx = canvas.getContext('2d');

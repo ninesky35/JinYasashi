@@ -35,14 +35,6 @@ module.exports = {
 		ctx.fillStyle = '#000';
 		ctx.fillText(texto.join(''), 86, 636);
 
-		ctx.beginPath();
-		ctx.arc(315, 276, 65, 0, Math.PI * 2);
-		ctx.fillStyle = '#fff';
-		ctx.fill();
-		ctx.stroke();
-		ctx.closePath();
-		ctx.clip();
-
 		msg.channel.createMessage('\u200b', {
 			file: canvas.toBuffer(),
 			name: 'trainer.png'
