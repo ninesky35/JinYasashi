@@ -1,7 +1,7 @@
 const Eris = require('eris-additions')(require('eris'));
 /**
  * Represents a Message
- * @param {string|Object} - message String Message or an embed object
+ * @param {string} - message String Message
  * @param {Object} - content An Attachment Object
  */
 function reply(message, content) {
