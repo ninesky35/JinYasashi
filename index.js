@@ -10,12 +10,12 @@ app.listen(port, () => {
 });
 
 const Eris = require('eris-additions')(require('eris'));
-
 const bot = new Eris(process.env.DISCORD_TOKEN, {
 	intents: 4617,
 	allowedMentions: { everyone: false, roles: false },
 	restMode: true
 });
+const axios = require('axios');
 const { readdirSync, statSync } = require('fs');
 require('./database/index.js');
 const prefixes = require('./database/models/prefixes.js');
