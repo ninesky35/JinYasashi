@@ -19,5 +19,9 @@ module.exports = {
 				'```kt\n' + err.stack.toString().slice(0, 1024) + '```'
 			);
 		}
+
+		function send(x, y) {
+			msg.channel.createMessage(x, y);
+		}
 	}
 };

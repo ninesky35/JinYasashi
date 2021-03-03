@@ -16,16 +16,18 @@ module.exports = {
 			);
 			if (res.stderr.length) {
 				msg.channel.createMessage(
-					'STDERR:\n' + res.stderr.toString().slice(0, 1950)
+					'```' + res.stderr.toString().slice(0, 1950) + '```'
 				);
 			}
 			if (res.stdout.length) {
 				msg.channel.createMessage(
-					'STDOUT:\n' + res.stdout.toString().slice(0, 1950)
+					'```' + res.stdout.toString().slice(0, 1950) + '```'
 				);
 			}
 		} catch (e) {
-			return msg.channel.send('ERR:\n' + err.toString().slice(0, 1950));
+			return msg.channel.send(
+				'```ERR:\n' + err.toString().slice(0, 1950) + '```'
+			);
 		}
 	}
 };

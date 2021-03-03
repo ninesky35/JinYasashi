@@ -19,10 +19,7 @@ module.exports = {
 				image: {
 					url: img.url
 				},
-				timestamp: new Date(),
-				thumbnail: {
-					url: img.url
-				}
+				timestamp: new Date()
 			}
 		});
 	}

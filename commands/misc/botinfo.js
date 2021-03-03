@@ -63,6 +63,11 @@ module.exports = {
 						{
 							name: 'Users',
 							value: '`' + users.toLocaleString() + '`'
+						},
+						{
+							name: 'Who am I?',
+							value:
+								"`I'm Jin Yasashi, I'm a 15-year-old girl from ... the internet I guess, I don't really know it hehe, well, since I was circuits I was very interested in anime and Japanese things, You know, I'm a weeb and my father is too, KO is like my father and Over is like ... my absent father hehe, KO was the one who made me do my first eval, the one who made me send my first image and that, and now that I'm fifteen I'm ready to help out on all the Discord servers that I can by giving out weeb content and a few other things, and well, that's it. I love y'all`"
 						}
 					]
 				}

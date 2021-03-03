@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 const port = 3077;
 const app = express();
@@ -8,7 +9,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
 	console.log('Server connected');
 });
-
+*/
 const Eris = require('eris-additions')(require('eris'));
 const bot = new Eris(process.env.DISCORD_TOKEN, {
 	intents: 4617,
@@ -19,9 +20,13 @@ const axios = require('axios');
 const { readdirSync, statSync } = require('fs');
 require('./database/index.js');
 const prefixes = require('./database/models/prefixes.js');
+//// Properties
+require('./utils/sendNudes');
 require('./utils/reply');
 require('./utils/setNSFW');
 require('./utils/errorMessage');
+require('./utils/delayFor');
+////
 const canvas = require('canvas');
 canvas.registerFont('./fonts/CaviarDreams.ttf', { family: 'Caviar' });
 canvas.registerFont('./fonts/CaviarDreams_Bold.ttf', { family: 'CDB' });
