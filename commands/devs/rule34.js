@@ -3,6 +3,7 @@ const getBuffer = require('../../utils/getBuffer.js');
 module.exports = {
 	name: 'rule34',
 	aliases: ['r', 'regla', 'r34'],
+	desc: "Why dou you see the command information? you're such a bad boy, maybe I have to punish you... did I really said that? hehe",
 	cat: 'devs',
 	cooldown: 0,
 	run: async (bot, msg, args) => {

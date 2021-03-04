@@ -1,4 +1,3 @@
-/*
 const express = require('express');
 const port = 3077;
 const app = express();
@@ -9,7 +8,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
 	console.log('Server connected');
 });
-*/
+
 const Eris = require('eris-additions')(require('eris'));
 const bot = new Eris(process.env.DISCORD_TOKEN, {
 	intents: 4617,
@@ -26,6 +25,7 @@ require('./utils/reply');
 require('./utils/setNSFW');
 require('./utils/errorMessage');
 require('./utils/delayFor');
+require('./utils/deleteTime');
 ////
 const canvas = require('canvas');
 canvas.registerFont('./fonts/CaviarDreams.ttf', { family: 'Caviar' });
@@ -33,9 +33,9 @@ canvas.registerFont('./fonts/CaviarDreams_Bold.ttf', { family: 'CDB' });
 canvas.registerFont('./fonts/LEMONMILK-Regular.otf', { family: 'Lemon' });
 bot.commands = new Eris.Collection();
 bot.cooldowns = new Eris.Collection();
-bot.db = prefixes;
 bot.cache = new Map();
 bot.color = 0x6f4e37;
+global.db = prefixes;
 const readDir = require('./utils/readDir.js');
 
 let commandFiles = readdirSync('./commands').filter(f => f.endsWith('.js'));
@@ -60,9 +60,9 @@ for (const file of commandFiles) {
 }
 
 bot.once('ready', () => {
-	bot.editStatus('idle', {
+	bot.editStatus('dnd', {
 		name: ';help',
-		type: 0,
+		type: 3,
 		url: 'https://github.com/diegohgaona/JinYasashi'
 	});
 	console.log('Bot started');
@@ -70,6 +70,8 @@ bot.once('ready', () => {
 
 bot.on('messageCreate', async msg => {
 	if (!msg.guild) return;
+	if (msg.author.bot) return;
+
 	let prefix;
 	if (bot.cache.has(msg.guild.id)) {
 		prefix = bot.cache.get(msg.guild.id);
@@ -78,8 +80,6 @@ bot.on('messageCreate', async msg => {
 		bot.cache.set(msg.guild.id, data.prefix || ';');
 		prefix = bot.cache.get(msg.guild.id);
 	}
-	if (msg.author.bot) return;
-
 	const args = msg.content
 		.substring(prefix.length)
 		.trimEnd()
@@ -112,11 +112,13 @@ bot.on('messageCreate', async msg => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-			return msg.channel.createMessage(
-				`please wait ${timeLeft.toFixed(
-					1
-				)} more second(s) before reusing the \`${cmd.name}\` command.`
-			);
+			return msg.channel
+				.createMessage(
+					`please wait ${timeLeft.toFixed(
+						1
+					)} more second(s) before reusing the \`${cmd.name}\` command.`
+				)
+				.then(x => x.delTime(6000));
 		}
 	}
 	timestamps.set(msg.author.id, now);
@@ -141,9 +143,9 @@ bot.on('messageUpdate', (msg, old) => {
 
 bot.on('guildDelete', async guild => {
 	try {
-		let data = await bot.db.get(guild.id);
+		let data = await global.db.get(guild.id);
 		if (data) {
-			bot.db.rm(guild.id);
+			global.db.rm(guild.id);
 		}
 		let owner = await bot.getRESTUser(guild.ownerID).catch(() => {});
 		bot.createMessage('812566018136211468', {
@@ -174,7 +176,7 @@ bot.on('guildDelete', async guild => {
 			}
 		});
 	} catch (e) {
-		console.log('guildDelete jei');
+		('a');
 	}
 });
 
