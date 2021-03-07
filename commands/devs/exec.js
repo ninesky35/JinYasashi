@@ -24,7 +24,7 @@ module.exports = {
 					'```' + res.stdout.toString().slice(0, 1950) + '```'
 				);
 			}
-		} catch (e) {
+		} catch (err) {
 			return msg.channel.send(
 				'```ERR:\n' + err.toString().slice(0, 1950) + '```'
 			);
