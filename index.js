@@ -34,7 +34,7 @@ canvas.registerFont('./fonts/LEMONMILK-Regular.otf', { family: 'Lemon' });
 bot.commands = new Eris.Collection();
 bot.cooldowns = new Eris.Collection();
 bot.cache = new Map();
-bot.color = 0x6f4e37;
+bot.color = 0xa67b5b;
 global.db = prefixes;
 const readDir = require('./utils/readDir.js');
 
@@ -95,7 +95,7 @@ bot.on('messageCreate', async msg => {
 	if (!msg.content.startsWith(prefix)) return;
 	if (!cmd) return;
 
-	if (cmd.cat == 'devs' && msg.author.id != '363634697349234688') {
+	if (cmd.cat == 'devs' && msg.author.id != '561684795806187530') {
 		return;
 	}
 
@@ -105,7 +105,7 @@ bot.on('messageCreate', async msg => {
 
 	const now = Date.now();
 	const timestamps = bot.cooldowns.get(cmd.name);
-	const cooldownAmount = (cmd.cooldown || 3) * 1000;
+	const cooldownAmount = (cmd.cooldown || 0) * 1000;
 
 	if (timestamps.has(msg.author.id)) {
 		const expirationTime = timestamps.get(msg.author.id) + cooldownAmount;
