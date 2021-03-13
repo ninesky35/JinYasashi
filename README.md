@@ -51,8 +51,4 @@ And there are many more commands, as you can see below!
 ~ vote
 ~ botsuggest
 
-- And more categories and commands will be added later! 
-------
-I am working hard to bring some entertainment to your Discord server and I am very grateful that you are reading this, ehm well, Thank U! (◍•ᴗ•◍)❤
-
-[![Bots for Discord](https://botsfordiscord.com/api/bot/809938925937491989/widget)](https://botsfordiscord.com/bots/809938925937491989)
+- This journey has come to an end, it was short but exciting, this code will stay here forever maybe one day i can watch this repo and start over again
